@@ -1,6 +1,54 @@
 @import "./var";
 @import "./font";
+@import "./animation";
 
-body {
-    font-family: 'Roboto Mono', monospace;
+.visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
 }
+
+.html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    font-family: 'Roboto Mono', monospace;
+    font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.body {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    background-color: $bg-color;
+}
+
+.container {
+    max-width: calc(100% - 40px);
+    margin: 0 auto;
+}
+
+.btn-reset {
+    margin: 0;
+  
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  
+    &:hover {
+      cursor: pointer;
+    }
+  }
