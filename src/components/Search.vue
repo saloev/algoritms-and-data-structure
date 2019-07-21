@@ -1,11 +1,11 @@
 <template>
-  <div class="search-block container">
-    <label for="site-book-chpater" class="visually-hidden">{{ label }}</label>
+  <div class="search-block">
+    <label for="site-book-chapter" class="visually-hidden">{{ label }}</label>
     <input
       placeholder="search..."
       v-model="mutableValue"
       type="search"
-      id="site-book-chpater"
+      id="site-book-chapter"
       name="search"
       class="search-block__input"
       aria-label="Search book chapters"
@@ -15,6 +15,7 @@
     />
     <button class="btn-reset search-block__btn">
       <svg
+        class="responsive-icon"
         width="41"
         height="41"
         viewBox="0 0 41 41"
