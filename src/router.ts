@@ -16,7 +16,7 @@ export default new Router({
     {
       path: '/chapter/:id',
       name: 'chapter',
-      component: () => import(/* webpackChunkName: "about" */ './views/Capter.vue'),
+      component: () => import(/* webpackChunkName: "about" */ './views/Chapter.vue'),
     },
   ],
 });

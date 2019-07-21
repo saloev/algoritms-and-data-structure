@@ -28,7 +28,7 @@
       </svg>
       <span class="accordion-item__text">{{ data.title }}</span>
     </button>
-    <router-link :to="{path: data.link }" v-else class="accordion-item__link">{{ data.title }}</router-link>
+    <router-link :to="{name:'', params: {id: data.id }  }" v-else class="accordion-item__link">{{ data.title }}</router-link>
 
     <transition name="fade">
         <div v-if="data.type === 'button' && showContent" class="accordion-item__code-body">
@@ -50,7 +50,7 @@ export default class List extends Vue {
   @Prop({
     default: {
       type: 'button',
-      link: '/',
+      id: '0',
       title: 'title',
       content: 'content',
     },
