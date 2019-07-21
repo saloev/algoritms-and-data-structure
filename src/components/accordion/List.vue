@@ -3,19 +3,19 @@
     <Search @input="changeSearchValue" />
     <h2 class="accordion__title">{{title}}</h2>
     <div class="accordion__list-wrap">
-      <ul class="accordion__list">
-        <li
-          class="accordion__list-item"
-          v-for="(item, index) in filterItems"
-          :key="`accordion-item-${index}`"
-        >
-          <Item :data="item" />
-        </li>
-      </ul>
+        <transition-group name="fade" tag="ul" class="accordion__list">
+            <li
+                class="accordion__list-item"
+                v-for="(item, index) in filterItems"
+                :key="`accordion-item-${index}`"
+            >
+                <Item :data="item" />
+            </li>
+        </transition-group>
 
-      <div class="accordion__list-loading" :class="{'accordion__list-loading--start': isSearching}">
+      <!-- <div class="accordion__list-loading" :class="{'accordion__list-loading--start': isSearching}">
             <svg class="responsive-icon accordion__list-loading-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>reload-2</title><path d="M5 19.551V21a1 1 0 0 1-2 0v-4a1 1 0 0 1 1-1h4a1 1 0 0 1 0 2H6.262c1.53 1.236 3.641 2 5.738 2a8 8 0 0 0 8-8 1 1 0 0 1 2 0c0 5.523-4.477 10-10 10-2.549 0-5.107-.916-7-2.449zM17.738 6C16.208 4.764 14.097 4 12 4a8 8 0 0 0-8 8 1 1 0 0 1-2 0C2 6.477 6.477 2 12 2c2.549 0 5.107.916 7 2.449V3a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1h-4a1 1 0 0 1 0-2h1.738z" fill="#BDBDBD" fill-rule="nonzero"/></svg>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -52,9 +52,9 @@ export default class List extends Vue {
             return title.toLowerCase().includes(this.searchValue.toLowerCase());
           });
 
-    // setTimeout(() => {
-    //   this.isSearching = false;
-    // }, 1500);
+    setTimeout(() => {
+      this.isSearching = false;
+    }, 1500);
 
     return res;
   }

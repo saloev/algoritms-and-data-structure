@@ -1,44 +1,56 @@
 <template>
   <div class="home">
-    <PreviewBlock title="Welcome to Your Vue.js + TypeScript App" text="describe" />
-
-    <!-- <Search @input="checkFunc" /> -->
-    <!-- <CodeBlock code="var a = 5" /> -->
-    <AccrodionList :listItems="list" />
+    <PreviewBlock title="Grokking Algorithms" :text="previewText" />
+    <AccrodionList :listItems="list" title="Table of content"/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import PreviewBlock from '@/components/PreviewBlock.vue';
-import Search from '@/components/Search.vue';
-import CodeBlock from '@/components/CodeBlock.vue';
 import AccrodionList from '@/components/accordion/List.vue';
 
 @Component({
   components: {
     PreviewBlock,
-    Search,
-    CodeBlock,
     AccrodionList,
   },
 })
 export default class Home extends Vue {
+  private previewText: string = `tasks with solution from book
+   <a href="https://www.manning.com/books/grokking-algorithms" style="display: inline-flex">Grokking Algorithms</a>`;
   private list: object[] = [
     {
       type: 'link',
       path: '/',
-      title: '1. Binary search',
+      title: 'Chapter 1. Introduction to Algorithms',
     },
     {
-      type: 'button',
-      title: '1. Binary search',
-      content: 'const a = 5; console.log(a + 5)',
+      type: 'link',
+      path: '/',
+      title: 'Chapter 2. Selection Sort',
     },
+    {
+      type: 'link',
+      path: '/',
+      title: 'Chapter 3. Recursion',
+    },
+    {
+      type: 'link',
+      path: '/',
+      title: 'Chapter 4. Quicksort',
+    },
+    {
+      type: 'link',
+      path: '/',
+      title: 'Chapter 5. Hash Tables',
+    },
+    // {
+    //   type: 'button',
+    //   title: '1. Binary search',
+    //   content: 'const a = 5; console.log(a + 5)',
+    // },
   ];
 
-  private checkFunc(value: any) {
-    console.log(value);
-  }
 }
 </script>

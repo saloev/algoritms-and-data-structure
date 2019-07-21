@@ -1,7 +1,7 @@
 <template>
   <div class="preview-block">
-    <h2 class="preview-block__title">{{ title }}</h2>
-    <p class="preview-block__desc">{{ text }}</p>
+    <h1 class="preview-block__title">{{ title }}</h1>
+    <p class="preview-block__desc" v-html="text"></p>
     <svg
       width="147"
       height="147"
@@ -27,7 +27,7 @@ export default class PreviewBlock extends Vue {
   @Prop() private text!: string;
 }
 </script>
-<style scoped lang="scss">
+<style lang="scss">
 .preview-block {
   width: 100%;
   height: 100vh;
@@ -43,9 +43,24 @@ export default class PreviewBlock extends Vue {
     margin-bottom: 10px;
     font-size: 2rem;
     line-height: 1.2;
+    color: $main-color;
   }
 
   &__desc {
+    font-size: 0.8rem;
+    line-height: 1.2;
+    font-style: italic;
+    color: $main-dark-grey;
+
+    a {
+    color: $blue;
+    transition: 0.2s linear color;
+
+      &:hover,
+      &:focus {
+        color: $sky-blue;
+    }
+  }
   }
 
   &__icon {

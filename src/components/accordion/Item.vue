@@ -28,11 +28,13 @@
       </svg>
       <span class="accordion-item__text">{{ data.title }}</span>
     </button>
-    <router-link :to="{path: linkTo }" v-else class="accordion-item__link">{{ data.title }}</router-link>
+    <router-link :to="{path: data.link }" v-else class="accordion-item__link">{{ data.title }}</router-link>
 
-    <div v-if="data.type === 'button' && showContent" class="accordion-item__code-body">
-      <CodeBlock :code="data.content" />
-    </div>
+    <transition name="fade">
+        <div v-if="data.type === 'button' && showContent" class="accordion-item__code-body">
+            <CodeBlock :code="data.content" />
+        </div>
+    </transition>
   </div>
 </template>
 <script lang="ts">
@@ -45,14 +47,10 @@ import CodeBlock from '@/components/CodeBlock.vue';
   },
 })
 export default class List extends Vue {
-  @Prop({ default: 'button' }) public type!: string;
-  @Prop({ default: '/' }) public linkTo!: string;
-  @Prop({ default: 'title' }) public title!: string;
-  @Prop({ default: 'content' }) public content!: string;
   @Prop({
     default: {
       type: 'button',
-      linkTo: '/',
+      link: '/',
       title: 'title',
       content: 'content',
     },

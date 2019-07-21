@@ -15,7 +15,6 @@
     />
     <button class="btn-reset search-block__btn">
       <svg
-        class="responsive-icon"
         width="41"
         height="41"
         viewBox="0 0 41 41"
