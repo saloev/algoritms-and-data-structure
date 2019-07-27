@@ -7,7 +7,7 @@ start:
 build:
 		npm run build
 
-lint-fix:
+lint:
 		npm run lint
 
 lint-fix:
