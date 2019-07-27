@@ -8,10 +8,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { State } from 'vuex-class';
-import { FirebaseFirestore, DocumentSnapshot, QuerySnapshot } from '@firebase/firestore-types';
 
 import PreviewBlock from '@/components/PreviewBlock.vue';
 import AccrodionList from '@/components/accordion/List.vue';
+
+import binarySearch from '@/tasks/chapter1/binarySearch.ts';
 
 @Component({
   components: {
@@ -20,38 +21,25 @@ import AccrodionList from '@/components/accordion/List.vue';
   },
 })
 export default class Home extends Vue {
-
   private previewText: string = `tasks with solution from book
    <a href="https://www.manning.com/books/grokking-algorithms" style="display: inline-flex">Grokking Algorithms</a>`;
 
-  // @ts-ignore TODO fix this
-  private db: FirebaseFirestore = this.$firebase.firestore();
+  private list: any = [
+    {
+      type: 'link',
+      title: 'Chapter 1. Introduction to Algorithms',
+      id: 1,
+    },
+    {
+      type: 'link',
+      title: 'Chapter 2. Selection Sort',
+      id: 2,
+    },
+  ];
 
-  private list: any = [];
+  private codee: any = binarySearch;
 
   private mounted() {
-    this.db
-      .collection('chapters')
-      .get()
-      .then((snap: QuerySnapshot) => {
-        snap.forEach((doc: DocumentSnapshot) => {
-          this.list = [...this.list, { type: 'link', id: doc.id, title: doc!.data()!.title }];
-          // this.db.collection('chapters').doc(doc.id).collection('tasks').get()
-          //  .then((snap: QuerySnapshot) => {
-          //    snap.forEach((doc: DocumentSnapshot) => {
-          //      console.log(doc.data());
-          //    });
-          //  })
-          //  .catch((err: any) => {
-          //   console.error(err);
-          //  });
-
-          console.log(doc.data(), this.list);
-        });
-      }).catch((err: any) => {
-        console.error(err);
-      });
-
     console.log(this.list);
   }
 }

@@ -58,3 +58,18 @@
     height: auto;
     max-width: 120px;
 }
+
+.common-link {
+    a {
+      font-size: 0.8rem;
+      line-height: 1.2;
+      font-style: italic;
+      color: $blue;
+      transition: 0.2s linear color;
+
+      &:hover,
+      &:focus {
+        color: $sky-blue;
+      }
+    }
+}
