@@ -1,3 +1,4 @@
+// TODO rewrite to better solution
 /**
  * middle index of given numbers
  * @first - from
