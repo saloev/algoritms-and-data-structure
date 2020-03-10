@@ -9,9 +9,8 @@ jobs:
   linting:
     name: 'Run linting and testing'
     runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v2
-      - name: Clear tool cache
+    steps:
+      name: 'My first step'
       with:
           node-version: 12.x
       run: make lint
