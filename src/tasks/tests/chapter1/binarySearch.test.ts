@@ -1,5 +1,5 @@
 
-// TODO jest dont support symlink @?????
+// TODO jest don't support symlink @?????
 import binarySearch from '../../chapter1/binarySearch';
 
 /* tslint:disable: no-unused-expression */

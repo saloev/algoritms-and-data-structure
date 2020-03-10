@@ -1,0 +1,19 @@
+name: 'CI linting and testing'
+
+on: 
+  push: 
+    branches: 
+      - master
+
+jobs:   
+  linting:
+    name: 'Run linting and testing'
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Clear tool cache
+      with:
+          node-version: 12.x
+      run: make lint
+      run: make test
+
