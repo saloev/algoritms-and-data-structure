@@ -1,18 +1,24 @@
-name: 'CI linting and testing'
+name: CI testing and linting with Node.js
 
-on: 
-  push: 
-    branches: 
-      - master
+on: [push]
 
-jobs:   
-  linting:
-    name: 'Run linting and testing'
+jobs:
+  build:
+
     runs-on: ubuntu-latest
-    steps:
-      name: 'My first step'
-      with:
-          node-version: 12.x
-      run: make lint
-      run: make test
 
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: make i
+    - run: make lint
+    - run: make test
+      env:
+        CI: true
