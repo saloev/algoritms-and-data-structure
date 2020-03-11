@@ -3,7 +3,7 @@ name: CI testing and linting with Node.js
 on: [push]
 
 jobs:
-  build:
+  lintAndTest:
 
     runs-on: ubuntu-latest
 
