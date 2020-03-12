@@ -6,7 +6,7 @@ function middle(first: number, second: number): number {
   }
 
   /**
-   * 
+   *
    * NOTE: if array length more then 80 get error: "RangeError: Maximum call stack size exceeded"
    * Index of element in array
    */

@@ -11,7 +11,7 @@ lint:
 		npm run lint
 
 lint-fix:
-		npm run lint --fix
+		npm run lint ./src/*.ts --fix
 
 test:
 		npm run test 
