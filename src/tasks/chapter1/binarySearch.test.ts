@@ -24,4 +24,4 @@ describe('binarySearch recursion implementation', () => {
     expect(binarySearch([0, 1, 2, 3, 4, 5, 10, 50, 78, 80], 6)).toBeNull;
   });
   
-});
+}); // realization 
