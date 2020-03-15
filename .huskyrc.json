@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "pre-commit": "make lint-fix",
-    "pre-push": "make lint-fix && make test"
+    "pre-commit": "make lint--fix",
+    "pre-push": "make lint--fix && make test"
   }
 }

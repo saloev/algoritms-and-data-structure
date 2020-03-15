@@ -15,11 +15,11 @@ function getRandomRangeIntInclusive(
   return res;
 }
 
-function getRandomIntNotInArrayRange(arr: number[]): number {
+function getRandomIntNotInArrayRange(arr: number[], min = 150, max = 160): number {
   let numb = 0;
   const isInArray = arr.some(elem => elem === numb);
   while (isInArray) {
-    numb = getRandomIntInclusive();
+    numb = getRandomIntInclusive(min, max);
   }
 
   return numb;
